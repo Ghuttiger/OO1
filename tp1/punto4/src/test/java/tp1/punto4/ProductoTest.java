@@ -1,4 +1,4 @@
-package tp1.punto2;
+package tp1.punto4;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

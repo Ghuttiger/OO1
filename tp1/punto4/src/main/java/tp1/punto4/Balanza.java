@@ -9,7 +9,7 @@ public class Balanza {
 	}
 	
 	public void ponerEnCero() {
-		this.productos.clear();
+		this.productos=new ArrayList<Producto>();
 	}
 	
 	public void agregarProducto(Producto producto) {
@@ -17,7 +17,7 @@ public class Balanza {
 	}
 
 	public Ticket emitirTicket(){
-		return new Ticket(getCantidadDeProductos(),getPesoTotal(),getPrecioTotal());
+		return new Ticket(productos);
 	}
 	
 	public double getPesoTotal() {

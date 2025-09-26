@@ -1,20 +1,18 @@
 package tp1.punto4;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.ArrayList;
 public class Ticket {
 	private LocalDate fecha;
-	private int cantProductos;
-	private double pesoTotal;
-	private double PrecioTotal;
+	private List<Producto> productos;
 	
-	public Ticket(int productos, double peso, double precio){
+	public Ticket(List<Producto>productos){
 		this.fecha=LocalDate.now();
-		this.cantProductos=productos;
-		this.pesoTotal=peso;
-		this.PrecioTotal=precio;
+		this.productos=productos;
 	}
 	
 	public double impuesto() {
-		return this.PrecioTotal*1.21;
+		return this.getPrecioTotal()*0.21;
 	}
 	
 	public LocalDate getFecha() {
@@ -22,14 +20,14 @@ public class Ticket {
 	}
 	
 	public int getCantidadDeProductos() {
-		return this.cantProductos;
+		return this.productos.size();
 	}
 	
 	public double getPesoTotal() {
-		return this.pesoTotal;
+		return this.productos.stream().mapToDouble(Producto::getPeso).sum();
 	}
 	
 	public double getPrecioTotal() {
-		return this.PrecioTotal;
+		return this.productos.stream().mapToDouble(Producto::getPrecio).sum();
 	}
 }
